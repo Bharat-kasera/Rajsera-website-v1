@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
+import Spline from "@splinetool/react-spline";
 
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
@@ -112,7 +113,7 @@ export default function Home() {
           stagger: 0.1,
           delay: 0.5,
           onStart: () => {
-            gsap.to(".hero-bg img", { scale: 1, duration: 2, ease: "hop" });
+            // Spline scene will be visible after loader
           },
           onComplete: () => {
             gsap.set(".loader", { pointerEvents: "none" });
@@ -174,7 +175,15 @@ export default function Home() {
       <Nav />
       <section className="hero">
         <div className="hero-bg">
-          <img src="/home/hero.jpg" alt="" />
+        <Spline
+        scene="https://prod.spline.design/daTR5Y0Y1cMb6V78/scene.splinecode" 
+      />
+          {/* Custom branding overlay to replace Spline watermark */}
+          {/* <div className="spline-branding">
+            <div className="spline-branding-badge">
+              Built with ❤️ by Rajsera Labs
+            </div>
+          </div> */}
         </div>
         <div className="hero-gradient"></div>
         <div className="container">
@@ -205,7 +214,7 @@ export default function Home() {
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.1}>
-                  <h2>150+</h2>
+                  <h2>40+</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
@@ -218,7 +227,7 @@ export default function Home() {
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.2}>
-                  <h2>50+</h2>
+                  <h2>30+</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
@@ -231,7 +240,7 @@ export default function Home() {
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.3}>
-                  <h2>8+</h2>
+                  <h2>5+</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
@@ -370,12 +379,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <CTAWindow
-        img="/home/home-cta-window.jpg"
+      {/* <CTAWindow
+        useSpline={true}
         header="Rajsera Labs"
-        callout="Digital products that stand the test of time"
+        callout="Rajsera Labs"
         description="Our approach is guided by user needs, scalable architecture, and beautiful design, creating products that grow more valuable as they're used."
-      />
+      /> */}
       <ConditionalFooter />
     </>
   );

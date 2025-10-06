@@ -115,7 +115,7 @@ const Footer = () => {
                     navigateWithTransition("/connect");
                   }}
                 >
-                  <h3>Connect</h3>
+                  <h3>Contact</h3>
                 </a>
               </Copy>
             </div>

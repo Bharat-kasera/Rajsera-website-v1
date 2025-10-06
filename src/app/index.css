@@ -3,7 +3,7 @@
   width: 100vw;
   height: 135svh;
   overflow: hidden;
-  background-color: #d3cec5;
+  background-color: #000000;
 }
 
 .hero .hero-bg {
@@ -13,13 +13,34 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 0;
 }
 
-.hero .hero-bg img {
+.hero .hero-bg > div {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  scale: 1.2;
+}
+
+.hero .hero-bg canvas {
+  display: block;
+}
+
+.hero .hero-bg .spline-branding {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+.hero .hero-bg .spline-branding-badge {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 1rem 1.25rem;
+  border-radius: 9999px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .hero .hero-gradient {

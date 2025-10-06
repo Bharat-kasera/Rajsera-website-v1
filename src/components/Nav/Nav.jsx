@@ -272,7 +272,7 @@ const Nav = () => {
                   href="/connect"
                   onClick={(e) => handleLinkClick(e, "/connect")}
                 >
-                  <h2>Connect</h2>
+                  <h2>Contact</h2>
                 </a>
               </div>
             </div>

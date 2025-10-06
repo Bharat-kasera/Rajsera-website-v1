@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@200..800&display=swap");
 
 :root {
-  --base-100: rgb(242, 237, 230);
-  --base-200: rgb(204, 200, 194);
-  --base-250: rgb(179, 167, 152);
-  --base-300: rgb(153, 143, 130);
-  --base-350: rgb(128, 119, 108);
-  --base-400: rgb(102, 95, 86);
-  --base-450: rgb(31, 29, 29);
-  --base-500: rgb(20, 19, 19);
+  --base-100: rgb(245, 245, 245);
+  --base-200: rgb(210, 210, 210);
+  --base-250: rgb(180, 180, 180);
+  --base-300: rgb(150, 150, 150);
+  --base-350: rgb(120, 120, 120);
+  --base-400: rgb(90, 90, 90);
+  --base-450: rgb(30, 30, 30);
+  --base-500: rgb(18, 18, 18);
 }
 
 * {

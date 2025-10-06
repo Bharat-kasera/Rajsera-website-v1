@@ -80,7 +80,8 @@ const TopBar = () => {
         </a>
       </div>
       <div className="top-bar-cta">
-        <AnimatedButton label="Reserve" route="/connect" animate={false} />
+        <AnimatedButton label="Free quote" route="/connect" animate={false} />
+        
       </div>
     </div>
   );
