@@ -1,0 +1,228 @@
+.industries-page {
+  background-color: var(--base-500);
+  min-height: 100vh;
+}
+
+.industries-page-hero {
+  padding: 12rem 0 8rem 0;
+}
+
+.industries-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 6rem;
+  max-width: 900px;
+}
+
+.industries-page-callout p {
+  color: var(--base-350);
+}
+
+.industries-page-title h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.15rem;
+  color: var(--base-100);
+}
+
+.industries-page-description {
+  max-width: 650px;
+}
+
+.industries-page-description p {
+  color: var(--base-250);
+  line-height: 1.7;
+}
+
+/* Grid */
+.industries-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Industry Cards */
+.industry-page-card {
+  position: relative;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.industry-page-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.industry-page-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.industry-page-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.industry-page-card:hover .industry-page-card-bg img {
+  transform: scale(1.1);
+}
+
+.industry-page-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.4) 0%,
+    rgba(18, 18, 18, 0.85) 100%
+  );
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.industry-page-card:hover .industry-page-card-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.3) 0%,
+    rgba(18, 18, 18, 0.9) 100%
+  );
+}
+
+.industry-page-card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  gap: 1rem;
+}
+
+.industry-page-card-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s ease;
+}
+
+.industry-page-card:hover .industry-page-card-icon {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.industry-page-card-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: invert(1);
+  opacity: 0.95;
+}
+
+.industry-page-card-header h3 {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--base-100);
+  line-height: 1.2;
+  letter-spacing: -0.02rem;
+  transition: all 0.3s ease;
+}
+
+.industry-page-card:hover .industry-page-card-header h3 {
+  transform: translateX(4px);
+}
+
+.industry-page-card-description p {
+  color: var(--base-250);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.industry-page-card-action {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.industry-page-arrow {
+  font-size: 1.5rem;
+  color: var(--base-100);
+  transition: all 0.4s cubic-bezier(0.65, 0, 0.076, 1);
+  display: inline-flex;
+  align-items: center;
+}
+
+.industry-page-card:hover .industry-page-arrow {
+  transform: translateX(8px);
+}
+
+.section-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.25rem;
+}
+
+.industry-page-learn-more {
+  font-size: 0.9rem;
+  color: var(--base-250);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.industry-page-card:hover .industry-page-learn-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .industries-page-hero {
+    padding: 8rem 0 4rem 0;
+  }
+
+  .industries-page-header {
+    margin-bottom: 4rem;
+  }
+
+  .industries-page-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .industries-page-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .industry-page-card {
+    height: 400px;
+  }
+
+  .industry-page-card-content {
+    padding: 2rem;
+  }
+
+  .industry-page-card-header h3 {
+    font-size: 1.5rem;
+  }
+}
+

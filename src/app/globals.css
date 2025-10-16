@@ -9,6 +9,7 @@
   --base-400: rgb(90, 90, 90);
   --base-450: rgb(30, 30, 30);
   --base-500: rgb(18, 18, 18);
+  --base-secondary-dark: #686560;
 }
 
 * {
@@ -90,6 +91,11 @@ p.lg.mono {
   font-size: 1.1rem;
 }
 
+p.mono span {
+  position: relative;
+  top: -0.1rem;
+}
+
 a {
   text-decoration: none;
   font-size: 1rem;
@@ -102,6 +108,17 @@ a {
 span.spacer {
   display: inline-block;
   width: 20rem;
+}
+
+.symbols-container {
+  display: flex;
+  gap: 0.5rem;
+  height: 1.125rem;
+  z-index: 1;
+}
+
+.symbols-container .symbol {
+  width: 1.125rem;
 }
 
 .container {

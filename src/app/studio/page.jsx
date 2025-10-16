@@ -10,7 +10,7 @@ import Copy from "@/components/Copy/Copy";
 
 const page = () => {
   return (
-    <>
+    <div key="studio-page-wrapper">
       <Nav />
       <div className="page studio">
         <section className="studio-hero">
@@ -88,7 +88,7 @@ const page = () => {
         <Spotlight />
       </div>
       <ConditionalFooter />
-    </>
+    </div>
   );
 };
 

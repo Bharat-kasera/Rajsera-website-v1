@@ -17,6 +17,10 @@ import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
+import Services from "@/components/Services/Services";
+import HomeAbout from "@/components/HomeAbout/HomeAbout";
+import HomeServices from "@/components/HomeServices/HomeServices";
+import Industries from "@/components/Industries/Industries";
 
 let isInitialLoad = true;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
@@ -149,7 +153,7 @@ export default function Home() {
   );
 
   return (
-    <>
+    <div key="home-page-wrapper">
       {showPreloader && (
         <div className="loader">
           <div className="overlay">
@@ -317,7 +321,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="featured-projects-container">
+      <Services />
+      <HomeAbout />
+      <HomeServices />
+      {/* <section className="featured-projects-container">
         <div className="container">
           <div className="featured-projects-header-callout">
             <Copy delay={0.1}>
@@ -331,12 +338,10 @@ export default function Home() {
           </div>
         </div>
         <FeaturedProjects />
-      </section>
+      </section> */}
+      <Industries />
       <section className="client-reviews-container">
         <div className="container">
-          <div className="client-reviews-header-callout">
-            <p>What our clients say</p>
-          </div>
           <ClientReviews />
         </div>
       </section>
@@ -374,7 +379,7 @@ export default function Home() {
                   that might inspire your next digital product.
                 </h3>
               </Copy>
-              <AnimatedButton label="View Portfolio" route="blueprints" />
+              <AnimatedButton label="View Portfolio" route="case-studies" />
             </div>
           </div>
         </div>
@@ -386,6 +391,6 @@ export default function Home() {
         description="Our approach is guided by user needs, scalable architecture, and beautiful design, creating products that grow more valuable as they're used."
       /> */}
       <ConditionalFooter />
-    </>
+    </div>
   );
 }

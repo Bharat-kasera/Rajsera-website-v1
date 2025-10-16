@@ -87,7 +87,7 @@ const page = () => {
   }, []);
 
   return (
-    <>
+    <div key="spaces-page-wrapper">
       <Nav />
       <div className="page spaces">
         <section className="spaces-header">
@@ -168,7 +168,7 @@ const page = () => {
         </section>
       </div>
       <ConditionalFooter />
-    </>
+    </div>
   );
 };
 

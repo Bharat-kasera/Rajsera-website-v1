@@ -41,6 +41,9 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
       const initializeSplitText = async () => {
         await waitForFonts();
 
+        // Check again after async operation
+        if (!containerRef.current) return;
+
         splitRefs.current = [];
         lines.current = [];
         elementRefs.current = [];
@@ -87,7 +90,7 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
           delay: delay,
         };
 
-        if (animateOnScroll) {
+        if (animateOnScroll && containerRef.current) {
           gsap.to(lines.current, {
             ...animationProps,
             scrollTrigger: {
@@ -104,17 +107,31 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
       initializeSplitText();
 
       return () => {
+        // Kill any ongoing animations first
+        gsap.killTweensOf(lines.current);
+        
+        // Then revert SplitText
         splitRefs.current.forEach((split) => {
-          if (split) {
+          if (split && split.revert) {
             split.revert();
           }
         });
+        
+        // Clear refs
+        splitRefs.current = [];
+        lines.current = [];
+        elementRefs.current = [];
       };
     },
     { scope: containerRef, dependencies: [animateOnScroll, delay] }
   );
 
-  if (React.Children.count(children) === 1) {
+  // Validate children before rendering
+  if (!children) {
+    return null;
+  }
+
+  if (React.Children.count(children) === 1 && React.isValidElement(children)) {
     return React.cloneElement(children, { ref: containerRef });
   }
 

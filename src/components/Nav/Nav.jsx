@@ -100,6 +100,23 @@ const Nav = () => {
 
       isInitializedRef.current = true;
     }
+
+    // Cleanup function
+    return () => {
+      // Kill all animations on menu elements
+      if (menuRef.current) {
+        gsap.killTweensOf(menuRef.current);
+      }
+
+      // Revert all SplitText instances
+      splitTextRefs.current.forEach((split) => {
+        if (split && split.revert) {
+          split.revert();
+        }
+      });
+      
+      splitTextRefs.current = [];
+    };
   }, []);
 
   const animateMenu = useCallback((open) => {
@@ -253,18 +270,26 @@ const Nav = () => {
               </div>
               <div className="link">
                 <a
-                  href="/sample-space"
-                  onClick={(e) => handleLinkClick(e, "/sample-space")}
+                  href="/services"
+                  onClick={(e) => handleLinkClick(e, "/services")}
                 >
-                  <h2>One Installation</h2>
+                  <h2>Services</h2>
                 </a>
               </div>
+              {/* <div className="link">
+                <a
+                  href="/industries"
+                  onClick={(e) => handleLinkClick(e, "/industries")}
+                >
+                  <h2>Industries</h2>
+                </a>
+              </div> */}
               <div className="link">
                 <a
-                  href="/blueprints"
-                  onClick={(e) => handleLinkClick(e, "/blueprints")}
+                  href="/case-studies"
+                  onClick={(e) => handleLinkClick(e, "/case-studies")}
                 >
-                  <h2>Blueprints</h2>
+                  <h2>Case Studies</h2>
                 </a>
               </div>
               <div className="link">

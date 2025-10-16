@@ -91,22 +91,31 @@ const Footer = () => {
                   <h3>Our Spaces</h3>
                 </a>
                 <a
-                  href="/sample-space"
+                  href="/services"
                   onClick={(e) => {
                     e.preventDefault();
-                    navigateWithTransition("/sample-space");
+                    navigateWithTransition("/services");
                   }}
                 >
-                  <h3>One Installation</h3>
+                  <h3>Services</h3>
                 </a>
-                <a
-                  href="/blueprints"
+                {/* <a
+                  href="/industries"
                   onClick={(e) => {
                     e.preventDefault();
-                    navigateWithTransition("/blueprints");
+                    navigateWithTransition("/industries");
                   }}
                 >
-                  <h3>Blueprints</h3>
+                  <h3>Industries</h3>
+                </a> */}
+                <a
+                  href="/case-studies"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateWithTransition("/case-studies");
+                  }}
+                >
+                  <h3>Case Studies</h3>
                 </a>
                 <a
                   href="/connect"

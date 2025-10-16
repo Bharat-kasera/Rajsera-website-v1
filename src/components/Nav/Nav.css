@@ -15,30 +15,53 @@
 .menu-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
   background-color: var(--base-450);
   border-radius: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 3rem;
+}
+
+.menu-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.menu-wrapper::-webkit-scrollbar-thumb {
+  background: var(--base-300);
+  border-radius: 3px;
+}
+
+.menu-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--base-200);
 }
 
 .col {
   position: relative;
-  height: 100%;
   display: flex;
+  flex-shrink: 0;
 }
 
 .col-1 {
-  flex: 3;
   padding: 2rem;
 }
 
 .col-2 {
-  flex: 2;
   align-items: flex-end;
   padding: 2rem;
+  margin-top: 2rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .link {
@@ -49,8 +72,8 @@
 .link a h2 {
   text-decoration: none;
   color: var(--base-300);
-  font-size: 4rem;
-  line-height: 1.1;
+  font-size: 2.8rem;
+  line-height: 1.25;
   pointer-events: auto;
   transition: color 0.3s ease-out;
 }
@@ -60,17 +83,17 @@
 }
 
 .socials {
-  width: 50%;
+  width: auto;
   display: flex;
-  gap: 2em;
+  gap: 4rem;
 }
 
 .socials .sub-col {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 2rem;
+  min-width: fit-content;
 }
 
 .menu-meta {
@@ -79,12 +102,15 @@
 
 .socials .sub-col p {
   position: relative;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .menu-meta p:nth-child(1) {
   color: var(--base-400);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
 }
 
 /* SplitText mask styles */
@@ -96,27 +122,36 @@
 
 @media (max-width: 1000px) {
   .link a h2 {
-    font-size: 2.25rem;
-    line-height: 1.2s;
+    font-size: 2.5rem;
+    line-height: 1.25;
+  }
+
+  .col-1 {
+    padding: 1.5rem;
   }
 
   .col-2 {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .socials {
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 10rem;
+    gap: 2rem;
   }
 
   .socials .sub-col {
-    flex: 1;
+    flex: 0 0 auto;
   }
 
-  .menu-commissions {
-    display: none;
+  .socials .sub-col p {
+    font-size: 0.9rem;
+  }
+
+  .menu-meta p:nth-child(1) {
+    font-size: 0.8rem;
   }
 }

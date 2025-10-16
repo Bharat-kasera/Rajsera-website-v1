@@ -56,6 +56,11 @@ const AnimatedButton = ({
       const initializeAnimation = async () => {
         await waitForFonts();
 
+        // Check refs after async operation
+        if (!textRef.current || !buttonRef.current || !circleRef.current || !iconRef.current) {
+          return;
+        }
+
         const split = SplitText.create(textRef.current, {
           type: "lines",
           mask: "lines",

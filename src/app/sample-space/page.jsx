@@ -8,7 +8,7 @@ import Copy from "@/components/Copy/Copy";
 
 const page = () => {
   return (
-    <>
+    <div key="sample-space-page-wrapper">
       <Nav />
       <div className="page sample-space">
         <section className="sample-space-hero">
@@ -190,7 +190,7 @@ const page = () => {
         />
       </div>
       <ConditionalFooter />
-    </>
+    </div>
   );
 };
 

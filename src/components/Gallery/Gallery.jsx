@@ -651,7 +651,7 @@ export default function Gallery() {
   };
 
   return (
-    <>
+    <div key="gallery-wrapper">
       <div className="gallery-container" ref={containerRef}>
         <div className="canvas" id="canvas" ref={canvasRef}></div>
         <div className="overlay" id="overlay" ref={overlayRef}></div>
@@ -659,6 +659,6 @@ export default function Gallery() {
       <div className="project-title" ref={projectTitleRef}>
         <p></p>
       </div>
-    </>
+    </div>
   );
 }

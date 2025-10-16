@@ -5,7 +5,7 @@ import Footer from "@/components/Footer/Footer";
 
 const ConditionalFooter = () => {
   const pathname = usePathname();
-  const showFooter = pathname !== "/blueprints";
+  const showFooter = pathname !== "/case-studies";
 
   return showFooter ? <Footer /> : null;
 };

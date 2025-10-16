@@ -61,7 +61,7 @@ const FeaturedProjects = () => {
   }, []);
 
   return (
-    <>
+    <div key="featured-projects-wrapper">
       <div className="featured-projects">
         {featuredProjectsContent.map((project, index) => (
           <div key={index} className="featured-project-card">
@@ -86,7 +86,7 @@ const FeaturedProjects = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

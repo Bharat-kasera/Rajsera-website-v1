@@ -46,8 +46,6 @@ const Spotlight = () => {
       const imagesContainer = imagesContainerRef.current;
       const spotlightHeader = spotlightHeaderRef.current;
       const titlesContainerElement = titlesContainerElementRef.current;
-      const introTextElements = introTextElementsRef.current;
-      const imageElements = imageElementsRef.current;
 
       if (
         !titlesContainer ||
@@ -58,15 +56,20 @@ const Spotlight = () => {
         return false;
       }
 
-      titlesContainer.innerHTML = "";
-      imagesContainer.innerHTML = "";
-      imageElements.length = 0;
+      // Clear previous elements safely
+      titlesContainer.textContent = '';
+      imagesContainer.textContent = '';
+      imageElementsRef.current = [];
+
+      // Create a document fragment for batch insertion (better performance)
+      const titleFragment = document.createDocumentFragment();
+      const imageFragment = document.createDocumentFragment();
 
       spotlightItems.forEach((item, index) => {
         const titleElement = document.createElement("h1");
         titleElement.textContent = item.name;
         if (index === 0) titleElement.style.opacity = "1";
-        titlesContainer.appendChild(titleElement);
+        titleFragment.appendChild(titleElement);
 
         const imgWrapper = document.createElement("div");
         imgWrapper.className = "spotlight-img";
@@ -74,12 +77,16 @@ const Spotlight = () => {
         imgElement.src = item.img;
         imgElement.alt = "";
         imgWrapper.appendChild(imgElement);
-        imagesContainer.appendChild(imgWrapper);
-        imageElements.push(imgWrapper);
+        imageFragment.appendChild(imgWrapper);
+        imageElementsRef.current.push(imgWrapper);
       });
 
+      // Append all at once
+      titlesContainer.appendChild(titleFragment);
+      imagesContainer.appendChild(imageFragment);
+
       const titleElements = titlesContainer.querySelectorAll("h1");
-      titleElementsRef.current = titleElements;
+      titleElementsRef.current = Array.from(titleElements);
 
       if (titleElements.length === 0) {
         return false;
@@ -270,9 +277,35 @@ const Spotlight = () => {
     });
 
     return () => {
+      // Kill ScrollTrigger first
       if (scrollTriggerRef.current) {
         scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
       }
+
+      // Kill ALL GSAP animations - use try/catch to avoid errors
+      try {
+        gsap.killTweensOf(introTextElementsRef.current);
+        gsap.killTweensOf(".spotlight-bg-img");
+        gsap.killTweensOf(".spotlight-bg-img img");
+        
+        // Kill animations on dynamically created elements
+        imageElementsRef.current.forEach((img) => {
+          if (img) gsap.killTweensOf(img);
+        });
+
+        titleElementsRef.current.forEach((title) => {
+          if (title) gsap.killTweensOf(title);
+        });
+      } catch (e) {
+        // Silently handle if elements are already gone
+      }
+
+      // Clear refs - DON'T manually manipulate DOM
+      titleElementsRef.current = [];
+      imageElementsRef.current = [];
+      
+      // Let browser clean up DOM when component unmounts
     };
   }, []);
 
@@ -300,10 +333,11 @@ const Spotlight = () => {
       <div
         className="spotlight-titles-container"
         ref={titlesContainerElementRef}
+        key="spotlight-titles-wrapper"
       >
-        <div className="spotlight-titles" ref={titlesContainerRef}></div>
+        <div className="spotlight-titles" ref={titlesContainerRef} key="spotlight-titles"></div>
       </div>
-      <div className="spotlight-images" ref={imagesContainerRef}></div>
+      <div className="spotlight-images" ref={imagesContainerRef} key="spotlight-images"></div>
       <div className="spotlight-header" ref={spotlightHeaderRef}>
         <p>Discover</p>
       </div>

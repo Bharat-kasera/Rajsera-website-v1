@@ -1,0 +1,796 @@
+.industry-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 150svh;
+  height: 100%;
+  overflow: hidden;
+}
+
+.industry-hero .industry-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.industry-hero .industry-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.industry-hero .industry-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 19, 19, 0.5);
+}
+
+.industry-content {
+  padding: 4rem 0 8rem 0;
+}
+
+.industry-hero-header h1 {
+  position: relative;
+}
+
+.industry-hero .container {
+  position: relative;
+  padding-top: 35svh;
+  color: var(--base-100);
+}
+
+.industry-hero .container .industry-content,
+.industry-details.industry-details-1 .container,
+.industry-details.industry-details-2 .container {
+  display: flex;
+  position: relative;
+  gap: 2rem;
+}
+
+.industry-col:nth-child(1) {
+  flex: 2;
+}
+
+.industry-col:nth-child(2) {
+  flex: 3;
+}
+
+.industry-hero .industry-content .industry-col:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.industry-hero .industry-content .industry-col:nth-child(2) h3 {
+  width: 85%;
+  margin-bottom: 2rem;
+}
+
+.industry-meta .industry-hero-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.industry-meta .industry-hero-row .industry-hero-sub-col {
+  flex: 1;
+}
+
+.industry-meta
+  .industry-hero-row
+  .industry-hero-sub-col
+  p:nth-child(1) {
+  margin-bottom: 1rem;
+}
+
+.industry-details {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  color: var(--base-350);
+  padding-top: 4rem;
+}
+
+.industry-details h3 {
+  width: 85%;
+  color: var(--base-100);
+  margin-bottom: 2rem;
+}
+
+.industry-details-img {
+  width: 75%;
+  border-radius: 2rem;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  margin-top: 4rem;
+}
+
+.industry-details-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.industry-details.industry-details-2 .industry-meta {
+  margin-bottom: 4rem;
+  color: var(--base-100);
+}
+
+.industry-details.industry-details-2
+  .industry-meta
+  .industry-hero-sub-col
+  p:nth-child(1) {
+  color: var(--base-350);
+  margin-bottom: 1rem;
+}
+
+.industry-details.industry-details-2 .industry-details-img {
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+}
+
+/* Next Industry Section */
+.next-industry-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.next-industry-link:hover {
+  opacity: 0.95;
+}
+
+.next-industry {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-industry .next-industry-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.next-industry .next-industry-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.next-industry .next-industry-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 19, 19, 0.6);
+}
+
+.next-industry .container {
+  position: relative;
+  z-index: 2;
+  color: var(--base-100);
+}
+
+.next-industry-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.next-industry-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.next-industry-title h2 {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 1;
+}
+
+.next-industry-description {
+  max-width: 60%;
+}
+
+@media (max-width: 1000px) {
+  .industry-hero .container .industry-content,
+  .industry-details.industry-details-1 .container,
+  .industry-details.industry-details-2 .container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .industry-details-img,
+  .industry-hero .industry-content .industry-col:nth-child(2) h3,
+  .industry-details h3 {
+    width: 100%;
+  }
+
+  .next-industry-description {
+    max-width: 100%;
+  }
+
+  .next-industry-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Industry-specific sections */
+
+/* Section Icons */
+.section-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.25rem;
+}
+
+/* Market Overview */
+.industry-market-overview .container {
+  display: flex;
+  gap: 3rem;
+}
+
+/* Inspirations Section */
+.industry-inspirations .container {
+  display: flex;
+  gap: 3rem;
+}
+
+.industry-inspirations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  overflow: visible !important;
+}
+
+.industry-inspiration-item {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  position: relative;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: visible !important;
+}
+
+.industry-inspiration-item:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.inspiration-number {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--base-100);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.industry-inspiration-item:hover .inspiration-number {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.2);
+}
+
+.inspiration-content {
+  flex: 1;
+}
+
+.inspiration-content h4 {
+  color: var(--base-100);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.inspiration-content p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Sub Verticals Section */
+.industry-sub-verticals {
+  padding: 6rem 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.container-full {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.industry-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.industry-section-header h2 {
+  color: var(--base-100);
+  margin-bottom: 1.5rem;
+}
+
+.industry-section-header p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.industry-sub-verticals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.industry-sub-vertical-card {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.industry-sub-vertical-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.sub-vertical-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-vertical-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(5) invert(1);
+}
+
+.industry-sub-vertical-card h4 {
+  color: var(--base-100);
+  font-size: 1.35rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.industry-sub-vertical-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.industry-sub-vertical-card li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.industry-sub-vertical-card li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--base-100);
+}
+
+/* Services Grid */
+.industry-services .container,
+.industry-solutions .container,
+.industry-benefits .container {
+  display: flex;
+  gap: 3rem;
+}
+
+.industry-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.industry-service-card {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.industry-service-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.industry-service-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.industry-service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(5) invert(1);
+}
+
+.industry-service-card h4 {
+  color: var(--base-100);
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.industry-service-card p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Integration Solutions */
+.industry-integrations .container {
+  display: flex;
+  gap: 3rem;
+}
+
+.industry-integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.industry-integration-card {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  text-align: center;
+}
+
+.industry-integration-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+}
+
+.industry-integration-card h4 {
+  color: var(--base-100);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.industry-integration-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Features Section */
+.industry-features {
+  padding: 6rem 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.industry-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.industry-feature-card {
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.industry-feature-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(5) invert(1);
+}
+
+.industry-feature-card h4 {
+  color: var(--base-100);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Process Section */
+.industry-process {
+  overflow: visible !important;
+}
+
+.industry-process .container {
+  display: flex;
+  gap: 3rem;
+  overflow: visible !important;
+}
+
+.industry-process .industry-col {
+  overflow: visible !important;
+}
+
+.industry-process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  overflow: visible !important;
+}
+
+.industry-process-step {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: visible !important;
+  will-change: transform;
+}
+
+.industry-process-step:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Why Choose Us / Why Create Portal */
+.industry-why-choose .container,
+.industry-why-portal .container {
+  display: flex;
+  gap: 3rem;
+}
+
+.industry-why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.industry-why-choose-item {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.industry-why-choose-item:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.industry-why-choose-item h4 {
+  color: var(--base-100);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.industry-why-choose-item p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* FAQs Section - Match service page styling */
+.industry-faqs {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 4em 0;
+}
+
+.industry-faqs .faq-container {
+  width: 100%;
+  padding: 2em;
+}
+
+.industry-faqs .faq-wrapper.full-width {
+  width: 100%;
+  padding: 2em 0;
+}
+
+.industry-faqs .faq-wrapper.contained {
+  margin: 0 auto;
+  width: 60%;
+  padding: 2em 0;
+}
+
+.industry-faqs .faq-title {
+  text-align: center;
+}
+
+.industry-faqs .faq-items {
+  margin-top: 4em;
+}
+
+.industry-faqs .faq-item {
+  margin-bottom: 1em;
+  padding: 0.25em 1em;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 1em;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.industry-faqs .faq-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.industry-faqs .faq-question {
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.industry-faqs .faq-question h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0em;
+  line-height: 1.5rem;
+  user-select: none;
+}
+
+.industry-faqs .faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.industry-faqs .faq-answer {
+  position: relative;
+  will-change: transform;
+}
+
+.industry-faqs .faq-answer p {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  user-select: none;
+  word-wrap: break-word;
+  white-space: normal;
+  will-change: transform, opacity;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+  .industry-market-overview .container,
+  .industry-inspirations .container,
+  .industry-services .container,
+  .industry-integrations .container,
+  .industry-solutions .container,
+  .industry-benefits .container,
+  .industry-process .container,
+  .industry-why-choose .container,
+  .industry-why-portal .container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .industry-sub-verticals-grid,
+  .industry-services-grid,
+  .industry-features-grid,
+  .industry-why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .industry-integrations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industry-faqs .faq-container {
+    padding: 1.25em;
+  }
+
+  .industry-faqs .faq-wrapper.contained {
+    width: 100%;
+  }
+
+  .industry-inspiration-item {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .inspiration-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+

@@ -6,6 +6,8 @@ import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
 import { IoMdArrowForward } from "react-icons/io";
+import Lottie from "lottie-react";
+import contactAnimation from "../../../public/lottie/contact-lottie.json";
 
 const page = () => {
   const [formData, setFormData] = useState({
@@ -64,22 +66,80 @@ const page = () => {
   };
 
   return (
-    <>
+    <div key="connect-page-wrapper">
       <Nav />
       <div className="page contact">
         <section className="contact-hero">
           <div className="container">
             <div className="contact-col">
-              <div className="contact-hero-header">
+              <div className="contact-trust-header">
                 <Copy delay={0.85}>
-                  <h1>Every great product starts with a conversation</h1>
+                  <h1>What We Offer to Earn Your Trust, and Keep It.</h1>
+                </Copy>
+                <Copy delay={1}>
+                  <p className="trust-subtitle">
+                    Long-term collaboration starts with confidence. Here's how we prove ourselves from Day 1.
+                  </p>
                 </Copy>
               </div>
-              {/* <div className="contact-copy-year">
-                <Copy delay={0.1}>
-                  <h1>&copy;25</h1>
+
+              <div className="trust-points">
+                <Copy delay={1.1}>
+                  <div className="trust-point">
+                    <h3>NDA Before We Talk</h3>
+                    <p>Your idea stays yours.</p>
+                  </div>
                 </Copy>
-              </div> */}
+
+                <Copy delay={1.2}>
+                  <div className="trust-point">
+                    <h3>Full Code Ownership</h3>
+                    <p>100% of the source code belongs to you.</p>
+                  </div>
+                </Copy>
+
+                <Copy delay={1.3}>
+                  <div className="trust-point">
+                    <h3>Transparent Fixed Pricing</h3>
+                    <p>No hidden costs or surprise bills.</p>
+                  </div>
+                </Copy>
+
+                <Copy delay={1.4}>
+                  <div className="trust-point">
+                    <h3>Weekly Live Demos</h3>
+                    <p>You see exactly what's being built.</p>
+                  </div>
+                </Copy>
+
+                <Copy delay={1.5}>
+                  <div className="trust-point">
+                    <h3>110% Delivery Commitment</h3>
+                    <p>We go beyond the promised scope.</p>
+                  </div>
+                </Copy>
+
+                <Copy delay={1.6}>
+                  <div className="trust-point">
+                    <h3>30-Day Post-Launch Support</h3>
+                    <p>Free bug fixes and adjustments after delivery.</p>
+                  </div>
+                </Copy>
+
+                <Copy delay={1.7}>
+                  <div className="trust-point">
+                    <h3>Dedicated Project Manager</h3>
+                    <p>One point of contact throughout the journey.</p>
+                  </div>
+                </Copy>
+
+                <Copy delay={1.8}>
+                  <div className="trust-point">
+                    <h3>Scalable Architecture</h3>
+                    <p>Built to grow with your business needs.</p>
+                  </div>
+                </Copy>
+              </div>
             </div>
             <div className="contact-col">
               {/* <div className="contact-info">
@@ -113,14 +173,17 @@ const page = () => {
                 </div>
               </div> */}
               <div className="contact-img">
-                <img
-                  src="/contact/contact-img.jpg"
-                  alt="Rajsera Labs workspace"
+                <Lottie 
+                  animationData={contactAnimation} 
+                  loop={true}
+                  autoplay={true}
                 />
               </div>
             </div>
           </div>
         </section>
+
+
 
         <section className="contact-form-section">
           <div className="container">
@@ -334,7 +397,7 @@ const page = () => {
         </section>
       </div>
       <ConditionalFooter />
-    </>
+    </div>
   );
 };
 

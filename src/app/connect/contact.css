@@ -25,15 +25,50 @@
   flex-direction: column;
 }
 
-.contact-hero .contact-hero-header h1 {
-  width: 60%;
-  color: var(--base-350);
+.contact-trust-header {
+  margin-bottom: 3rem;
 }
 
-.contact-hero .contact-copy-year h1 {
-  font-size: 20vw;
-  font-weight: 450;
+.contact-trust-header h1 {
   color: var(--base-100);
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.trust-subtitle {
+  color: var(--base-300);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 80%;
+}
+
+.trust-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+}
+
+.trust-point {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trust-point h3 {
+  color: var(--base-100);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.trust-point p {
+  color: var(--base-300);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .contact-hero .contact-info {
@@ -58,6 +93,57 @@
   overflow: hidden;
 }
 
+/* Contact Intro Section */
+.contact-intro-section {
+  position: relative;
+  width: 100vw;
+  padding: 8svh 0;
+  color: var(--base-200);
+}
+
+.contact-intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-intro-content p.lg {
+  color: var(--base-300);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.contact-intro-details {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.contact-detail p.mono {
+  color: var(--base-350);
+  font-size: 0.85rem;
+}
+
+.contact-detail a {
+  color: var(--base-100);
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-detail a:hover {
+  color: var(--base-250);
+}
+
 /* Contact Form Section */
 .contact-form-section {
   position: relative;
@@ -72,11 +158,16 @@
 
 .contact-form-header h2 {
   color: var(--base-100);
+  font-size: 2.5rem;
+  font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
-.contact-form-header p {
+.contact-form-header p.lg {
   color: var(--base-300);
+  font-size: 1.125rem;
+  line-height: 1.6;
   max-width: 600px;
 }
 
@@ -107,9 +198,10 @@
 }
 
 .form-group label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--base-300);
+  letter-spacing: 0.01em;
   transition: color 0.3s ease;
 }
 
@@ -341,16 +433,61 @@
   }
 
   .contact-hero .container .contact-col:nth-child(1) {
-    flex-direction: column-reverse;
-    gap: 1rem;
+    gap: 3rem;
   }
 
-  .contact-hero .contact-hero-header h1 {
-    width: 100%;
+  .contact-trust-header h1 {
+    font-size: 2.25rem;
   }
 
-  .contact-hero .contact-copy-year h1 {
-    font-size: 3rem;
+  .trust-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .trust-points {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .trust-point {
+    gap: 0.75rem;
+  }
+
+  .trust-point h3 {
+    font-size: 1.125rem;
+  }
+
+  .trust-point p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .contact-form-header h2 {
+    font-size: 2rem;
+  }
+
+  .contact-form-header p.lg {
+    font-size: 1rem;
+  }
+
+  .contact-intro-section {
+    padding: 4svh 0;
+  }
+
+  .contact-intro-content {
+    text-align: left;
+  }
+
+  .contact-intro-details {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .contact-detail {
+    text-align: left;
+    align-items: flex-start;
   }
 
   .contact-form-section {

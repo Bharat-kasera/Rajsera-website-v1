@@ -13,6 +13,8 @@ const CTAWindow = ({ img, header, callout, description, useSpline = false }) => 
   useEffect(() => {
     if (!useSpline || !sectionRef.current) return;
 
+    const currentSection = sectionRef.current; // Capture ref value
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,12 +27,13 @@ const CTAWindow = ({ img, header, callout, description, useSpline = false }) => 
       }
     );
 
-    observer.observe(sectionRef.current);
+    observer.observe(currentSection);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
+      observer.disconnect();
     };
   }, [useSpline]);
 
@@ -39,9 +42,9 @@ const CTAWindow = ({ img, header, callout, description, useSpline = false }) => 
       <div className="container">
         <div className="cta-window-img-wrapper">
           {useSpline ? (
-            <>
+            <div key="spline-wrapper">
               {isInView && (
-                <>
+                <div key="spline-content">
                   {!isSplineLoaded && (
                     <div style={{
                       position: 'absolute',
@@ -59,9 +62,9 @@ const CTAWindow = ({ img, header, callout, description, useSpline = false }) => 
                     scene="/spline/dynamic_i_phone_mockup.spline"
                     onLoad={() => setIsSplineLoaded(true)}
                   />
-                </>
+                </div>
               )}
-            </>
+            </div>
           ) : (
             <img src={img} alt="" />
           )}
