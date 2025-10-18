@@ -1,6 +1,7 @@
 "use client";
 import "./ClientReviews.css";
 import { useState, useEffect } from "react";
+import Copy from "@/components/Copy/Copy";
 
 const testimonials = [
   { id: 1, image: "/testimonials/t1.png" },
@@ -69,8 +70,17 @@ const ClientReviews = () => {
   return (
     <div className="client-reviews">
       <div className="testimonials-header">
-        <h2>Real Feedback from Real Clients</h2>
-        <p>Authentic conversations and payment confirmations that speak louder than words</p>
+        <div className="testimonials-header-callout">
+          <Copy delay={0.1}>
+            <p>Client Testimonials</p>
+          </Copy>
+        </div>
+        <Copy delay={0.15}>
+          <h2>Real Feedback from Real Clients</h2>
+        </Copy>
+        <Copy delay={0.2}>
+          <p>Authentic conversations and payment confirmations that speak louder than words</p>
+        </Copy>
       </div>
 
       <div className="testimonials-carousel">

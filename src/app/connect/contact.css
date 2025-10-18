@@ -426,6 +426,24 @@
   color: rgb(252, 165, 165);
 }
 
+/* Client Reviews Section */
+.client-reviews-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  color: var(--base-100);
+  padding: 4rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.client-reviews-container .container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: auto;
+}
+
 @media (max-width: 768px) {
   .contact-hero .container {
     flex-direction: column;
@@ -533,5 +551,14 @@
   .country-code-select {
     min-width: 130px;
     max-width: 130px;
+  }
+
+  .client-reviews-container {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .client-reviews-container .container {
+    gap: 2rem;
   }
 }

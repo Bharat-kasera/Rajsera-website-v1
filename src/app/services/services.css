@@ -178,6 +178,24 @@
   opacity: 1;
 }
 
+/* Client Reviews Section */
+.client-reviews-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  color: var(--base-100);
+  padding: 4rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.client-reviews-container .container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: auto;
+}
+
 /* Responsive */
 @media (max-width: 1000px) {
   .services-page-hero {
@@ -199,6 +217,15 @@
 
   .service-page-card {
     padding: 2rem;
+  }
+
+  .client-reviews-container {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .client-reviews-container .container {
+    gap: 2rem;
   }
 }
 

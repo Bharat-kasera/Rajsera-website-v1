@@ -72,7 +72,7 @@ const Footer = () => {
                 >
                   <h3>Index</h3>
                 </a>
-                <a
+                {/* <a
                   href="/studio"
                   onClick={(e) => {
                     e.preventDefault();
@@ -89,7 +89,7 @@ const Footer = () => {
                   }}
                 >
                   <h3>Our Spaces</h3>
-                </a>
+                </a> */}
                 <a
                   href="/services"
                   onClick={(e) => {
@@ -130,7 +130,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="container footer-socials">
+        {/* <div className="container footer-socials">
           <div className="footer-meta-col">
             <div className="footer-socials-wrapper" ref={socialIconsRef}>
               <div className="icon">
@@ -155,7 +155,7 @@ const Footer = () => {
               </p>
             </Copy>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="footer-outro">
         <div className="container">

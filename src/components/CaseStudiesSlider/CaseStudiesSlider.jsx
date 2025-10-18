@@ -506,10 +506,12 @@ const CaseStudiesSlider = () => {
       return cleanup;
     };
 
-    const cleanupFn = init();
+    init();
     
     return () => {
-      if (cleanupFn) cleanupFn();
+      if (cleanupFnsRef.current) {
+        cleanupFnsRef.current();
+      }
     };
   }, [mounted, totalSlides]);
 

@@ -79,6 +79,51 @@
   color: var(--base-200);
 }
 
+.hero .hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.hero .hero-cta-subtitle {
+  font-size: 1.25rem;
+  color: var(--base-100);
+  font-weight: 500;
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero .hero-trust-indicators {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero .hero-trust-indicators .trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--base-300);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hero .hero-trust-indicators .trust-item svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  vertical-align: middle;
+  margin-top: 0.05rem;
+}
+
+.hero .hero-trust-indicators .trust-item span {
+  vertical-align: middle;
+}
+
 .hero .hero-stats {
   position: absolute;
   bottom: 0;
@@ -131,6 +176,24 @@
 
   .hero .hero-tagline {
     width: 75%;
+  }
+
+  .hero .hero-cta {
+    gap: 1.5rem;
+  }
+
+  .hero .hero-cta-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .hero .hero-trust-indicators {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .hero .hero-trust-indicators .trust-item {
+    font-size: 0.875rem;
   }
 
   .hero .hero-stats .container {

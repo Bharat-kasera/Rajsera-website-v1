@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rajsera.com
+
+# Sitemaps
+Sitemap: https://rajsera.com/sitemap.xml
+

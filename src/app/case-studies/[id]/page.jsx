@@ -11,6 +11,9 @@ import "./project.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Note: generateMetadata can't be used with "use client" directive
+// Metadata would need to be handled at layout level or use a server component wrapper
+
 const ProjectPage = () => {
   const params = useParams();
   const router = useRouter();
@@ -275,21 +278,11 @@ const ProjectPage = () => {
           </div>
         </div>
         <div className="project-snapshots-wrapper">
-          <div className="project-snapshot">
-            <img src="/project-images/project-img-1.jpg" alt="" />
-          </div>
-          <div className="project-snapshot">
-            <img src="/project-images/project-img-2.jpg" alt="" />
-          </div>
-          <div className="project-snapshot">
-            <img src="/project-images/project-img-3.jpg" alt="" />
-          </div>
-          <div className="project-snapshot">
-            <img src="/project-images/project-img-4.jpg" alt="" />
-          </div>
-          <div className="project-snapshot">
-            <img src="/project-images/project-img-1.jpg" alt="" />
-          </div>
+          {project.snapshots && project.snapshots.map((snapshot, index) => (
+            <div key={index} className="project-snapshot">
+              <img src={snapshot} alt={`${project.title} snapshot ${index + 1}`} />
+            </div>
+          ))}
         </div>
         <div className="snapshots-progress-bar">
           {[...Array(30)].map((_, i) => (
@@ -313,21 +306,18 @@ const ProjectPage = () => {
                 <span>&#9654;</span> Client Review
               </p>
               <br />
-              <p
-                data-animate-type="line-reveal"
-                data-animate-delay="0.25"
-                data-animate-on-scroll="true"
-              >
-                {project.clientReview[0]}
-              </p>
-              <br />
-              <p
-                data-animate-type="line-reveal"
-                data-animate-delay="0.7"
-                data-animate-on-scroll="true"
-              >
-                {project.clientReview[1]}
-              </p>
+              {project.clientReview && project.clientReview.map((review, index) => (
+                <div key={index}>
+                  <p
+                    data-animate-type="line-reveal"
+                    data-animate-delay={0.25 + (index * 0.45)}
+                    data-animate-on-scroll="true"
+                  >
+                    {review}
+                  </p>
+                  {index < project.clientReview.length - 1 && <br />}
+                </div>
+              ))}
             </div>
           </div>
         </div>

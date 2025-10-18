@@ -7,6 +7,7 @@ import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
 import { IoMdArrowForward } from "react-icons/io";
+import ClientReviews from "@/components/ClientReviews/ClientReviews";
 
 const servicesData = [
   {
@@ -127,6 +128,12 @@ const ServicesPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="client-reviews-container">
+          <div className="container">
+            <ClientReviews />
           </div>
         </section>
       </div>

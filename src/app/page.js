@@ -9,7 +9,8 @@ import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
 import Spline from "@splinetool/react-spline";
-
+import { IoCheckmarkCircle } from "react-icons/io5";
+import { IoMdCheckmark } from "react-icons/io";
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import AnimatedButton from "@/components/AnimatedButton/AnimatedButton";
@@ -180,7 +181,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-bg">
         <Spline
-        scene="https://prod.spline.design/daTR5Y0Y1cMb6V78/scene.splinecode" 
+        scene="/spline/legendary_waves.splinecode" 
       />
           {/* Custom branding overlay to replace Spline watermark */}
           {/* <div className="spline-branding">
@@ -194,23 +195,48 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-header">
               <Copy animateOnScroll={false} delay={showPreloader ? 4 : 0.85}>
-                <h1>Digital experiences that feel intuitive, powerful, and beautifully crafted</h1>
+                <h1>Stop Losing Money to Bad Tech. We Build Solutions That Actually Work.</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
               <Copy animateOnScroll={false} delay={showPreloader ? 4.15 : 1}>
                 <p>
-                  At Rajsera Labs, we build apps and websites that transform ideas into 
-                  exceptional digital products through elegant design and robust development.
+                We build custom apps and websites that drive real business results. Increase revenue, boost efficiency, and scale faster with expert development.
                 </p>
               </Copy>
             </div>
-            <AnimatedButton
-              label="Discover More"
-              route="/studio"
-              animateOnScroll={false}
-              delay={showPreloader ? 4.3 : 1.15}
-            />
+            
+            <div className="hero-cta">
+              
+              
+              <AnimatedButton
+                label="Free Consultation"
+                route="/connect"
+                animateOnScroll={false}
+                delay={showPreloader ? 4.45 : 1.3}
+              />
+              
+              <div className="hero-trust-indicators">
+                <Copy animateOnScroll={false} delay={showPreloader ? 4.6 : 1.45}>
+                  <div className="trust-item">
+                    <IoMdCheckmark />
+                    <span>Fast 2-4 week delivery</span>
+                  </div>
+                </Copy>
+                <Copy animateOnScroll={false} delay={showPreloader ? 4.65 : 1.5}>
+                  <div className="trust-item">
+                    <IoMdCheckmark />
+                    <span>Fixed pricing, no surprises</span>
+                  </div>
+                </Copy>
+                <Copy animateOnScroll={false} delay={showPreloader ? 4.7 : 1.55}>
+                  <div className="trust-item">
+                    <IoMdCheckmark />
+                    <span>30-day support guarantee</span>
+                  </div>
+                </Copy>
+              </div>
+            </div>
           </div>
         </div>
         <div className="hero-stats">
@@ -322,6 +348,11 @@ export default function Home() {
         </div>
       </section>
       <Services />
+      <section className="client-reviews-container">
+        <div className="container">
+          <ClientReviews />
+        </div>
+      </section>
       <HomeAbout />
       <HomeServices />
       {/* <section className="featured-projects-container">
@@ -340,11 +371,6 @@ export default function Home() {
         <FeaturedProjects />
       </section> */}
       <Industries />
-      <section className="client-reviews-container">
-        <div className="container">
-          <ClientReviews />
-        </div>
-      </section>
       <section className="gallery-callout">
         <div className="container">
           <div className="gallery-callout-col">

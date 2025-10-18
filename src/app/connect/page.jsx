@@ -8,6 +8,7 @@ import Copy from "@/components/Copy/Copy";
 import { IoMdArrowForward } from "react-icons/io";
 import Lottie from "lottie-react";
 import contactAnimation from "../../../public/lottie/contact-lottie.json";
+import ClientReviews from "@/components/ClientReviews/ClientReviews";
 
 const page = () => {
   const [formData, setFormData] = useState({
@@ -38,11 +39,19 @@ const page = () => {
     setIsSubmitting(true);
     
     try {
-      // Add your form submission logic here (e.g., API call)
-      console.log("Form submitted:", formData);
-      
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
       
       setSubmitStatus("success");
       setFormData({
@@ -61,7 +70,7 @@ const page = () => {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 3000);
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
 
@@ -283,6 +292,7 @@ const page = () => {
                     required
                   >
                     <option value="">Select an option</option>
+                    <option value="0.5k-1k">£500 - £1,000</option>
                     <option value="1k-5k">£1,000 - £5,000</option>
                     <option value="5k-10k">£5,000 - £10,000</option>
                     <option value="10k-20k">£10,000 - £20,000</option>
@@ -393,6 +403,12 @@ const page = () => {
                 )}
               </div>
             </form>
+          </div>
+        </section>
+
+        <section className="client-reviews-container">
+          <div className="container">
+            <ClientReviews />
           </div>
         </section>
       </div>

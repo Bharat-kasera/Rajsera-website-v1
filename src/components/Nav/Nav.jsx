@@ -252,7 +252,7 @@ const Nav = () => {
                   <h2>Index</h2>
                 </a>
               </div>
-              <div className="link">
+              {/* <div className="link">
                 <a
                   href="/studio"
                   onClick={(e) => handleLinkClick(e, "/studio")}
@@ -267,7 +267,7 @@ const Nav = () => {
                 >
                   <h2>Our Spaces</h2>
                 </a>
-              </div>
+              </div> */}
               <div className="link">
                 <a
                   href="/services"
@@ -316,14 +316,14 @@ const Nav = () => {
                   <p>Available Worldwide</p>
                 </div>
               </div>
-              <div className="sub-col">
+              {/* <div className="sub-col">
                 <div className="menu-meta">
                   <p>Social</p>
                   <p>Instagram</p>
                   <p>Are.na</p>
                   <p>LinkedIn</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
