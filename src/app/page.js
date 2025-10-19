@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
-import Spline from "@splinetool/react-spline";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { IoMdCheckmark } from "react-icons/io";
 import Nav from "@/components/Nav/Nav";
@@ -180,15 +179,17 @@ export default function Home() {
       <Nav />
       <section className="hero">
         <div className="hero-bg">
-        <Spline
-        scene="/spline/legendary_waves.splinecode" 
-      />
-          {/* Custom branding overlay to replace Spline watermark */}
-          {/* <div className="spline-branding">
-            <div className="spline-branding-badge">
-              Built with ❤️ by Rajsera Labs
-            </div>
-          </div> */}
+          <video
+            className="hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/spline/legendary-waves.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="hero-gradient"></div>
         <div className="container">
