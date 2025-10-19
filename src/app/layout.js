@@ -60,7 +60,7 @@ export const metadata = {
     creator: '@rajseralabs',
   },
   verification: {
-    google: 'your-google-verification-code', // Add this later from Google Search Console
+    google: '0EldgnVYg6SwAEaqiliJ5CD2jyxxqRQKgLg09xo4Tgc',
   },
   alternates: {
     canonical: 'https://rajsera.com',
