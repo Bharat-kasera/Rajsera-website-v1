@@ -231,7 +231,7 @@ const ServicePage = () => {
                     <Copy delay={0.35}>
                       <p className="stat-text">{service.whyNeed.statCallout}</p>
                     </Copy>
-                    <Link href="/contact" className="service-cta-button">
+                    <Link href="/connect" className="service-cta-button">
                       Talk to Us
                     </Link>
                   </div>
@@ -814,7 +814,7 @@ const ServicePage = () => {
                 <Copy delay={0.25}>
                   <div className="service-testimonial-cta">
                     <p className="lg">Want to connect with our team for your upcoming business project?</p>
-                    <Link href="/contact" className="service-cta-button">
+                    <Link href="/connect" className="service-cta-button">
                       Talk to Us
                     </Link>
                   </div>

@@ -17,7 +17,9 @@
 
 .btn .circle {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   width: 3rem;
   height: 3rem;
@@ -31,11 +33,14 @@
 
 .btn .icon {
   position: absolute;
-  top: 0.775rem;
-  left: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: calc(0.15rem + 1.5rem);
+  left: calc(0.15rem + 1.5rem);
+  transform: translate(-50%, -50%);
   color: var(--base-100);
   font-size: 1.5rem;
-  transform: translateX(0);
   transition: all 0.5s cubic-bezier(0.65, 0, 0.076, 1);
   will-change: transform;
 }
@@ -43,9 +48,9 @@
 .btn .button-text {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 0 0 1.25rem;
+  left: 3.35rem;
+  right: 0.5rem;
+  transform: translateY(-50%);
   text-align: center;
   color: var(--base-500);
   font-family: "Manrope", sans-serif;
@@ -68,7 +73,7 @@
 }
 
 .btn:hover .icon {
-  transform: translate(0.75rem);
+  left: calc(0.15rem + 1.5rem + 0.75rem);
 }
 
 .btn:hover .button-text {
@@ -77,22 +82,47 @@
 
 @media (max-width: 480px) {
   .btn {
-    width: 10rem;
+    width: 11rem;
     font-size: 0.8rem;
   }
 
   .btn .circle {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .btn .icon {
-    top: 0.625rem;
-    left: 0.85rem;
+    top: calc(0.15rem + 1.25rem);
+    left: calc(0.15rem + 1.25rem);
     font-size: 1.25rem;
   }
 
   .btn .button-text {
     font-size: 0.85rem;
+    left: 2.8rem;
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .btn {
+    width: 10rem;
+  }
+
+  .btn .circle {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .btn .icon {
+    top: calc(0.15rem + 1.125rem);
+    left: calc(0.15rem + 1.125rem);
+    font-size: 1.1rem;
+  }
+
+  .btn .button-text {
+    font-size: 0.8rem;
+    left: 2.5rem;
+    right: 0.4rem;
   }
 }

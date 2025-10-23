@@ -396,6 +396,23 @@
   }
 }
 
+@media (max-width: 768px) {
+  .what-we-do .container h1 {
+    margin-bottom: 6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .what-we-do .container h1 {
+    margin-bottom: 4rem;
+  }
+
+  .what-we-do .what-we-do-tag {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
 .featured-projects-container {
   position: relative;
   width: 100vw;
