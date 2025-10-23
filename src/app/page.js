@@ -36,7 +36,7 @@ const criticalImages = [
   "/gallery-callout/gallery-callout-3.jpg",
   "/gallery-callout/gallery-callout-4.jpg",
   "/logos/rajsera-icon-dark.svg",
-  "/logos/rajsera-icon-light.svg",
+  "/logos/Rajsera-icon-light.svg",
   "/symbols/s1-dark.png",
   "/symbols/s3-dark.png",
 ];
