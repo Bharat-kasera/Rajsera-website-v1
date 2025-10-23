@@ -33,3 +33,18 @@
     width: 2.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 0.5rem 1rem;
+  }
+
+  .top-bar .btn {
+    width: 9rem;
+    min-width: 9rem;
+  }
+
+  .top-bar .top-bar-logo {
+    width: 2.25rem;
+  }
+}

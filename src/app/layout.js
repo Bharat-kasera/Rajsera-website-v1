@@ -72,11 +72,17 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <GoogleAnalytics />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="icon" type="image/png" href="/icon.png" sizes="192x192" />
         <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
+        {/* Preload critical images for faster loading */}
+        <link rel="preload" as="image" href="/gallery-callout/gallery-callout-1.jpg" />
+        <link rel="preload" as="image" href="/gallery-callout/gallery-callout-2.jpg" />
+        <link rel="preload" as="image" href="/gallery-callout/gallery-callout-3.jpg" />
+        <link rel="preload" as="image" href="/gallery-callout/gallery-callout-4.jpg" />
+        <link rel="preload" as="image" href="/logos/rajsera-icon-dark.svg" />
+        <link rel="preload" as="video" href="/spline/legendary-waves.mp4" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

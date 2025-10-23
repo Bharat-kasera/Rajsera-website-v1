@@ -2,6 +2,7 @@
 import "./Footer.css";
 
 import { useRef } from "react";
+import Script from "next/script";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -167,9 +168,27 @@ const Footer = () => {
               Developed by — <a href="https://www.linkedin.com/in/bharat-kasera/" target="_blank" rel="noopener noreferrer"><span>Bharat Kasera</span></a>
             </p>
             <p>All rights reserved &copy; 2025</p>
+            {/* <div className="dmca-badge-wrapper">
+              <a 
+                href="https://www.dmca.com/r/ypd1m5m" 
+                title="DMCA.com Protection Status" 
+                className="dmca-badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img 
+                  src="https://images.dmca.com/Badges/dmca-badge-w150-5x1-01.png?ID=ab9c202e-09f4-4c4e-9a9e-a3c8220fbd32"
+                  alt="DMCA.com Protection Status" 
+                />
+              </a>
+            </div> */}
           </div>
         </div>
       </div>
+      <Script 
+        src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"
+        strategy="lazyOnload"
+      />
     </div>
   );
 };

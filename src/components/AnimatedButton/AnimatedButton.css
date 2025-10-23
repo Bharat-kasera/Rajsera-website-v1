@@ -74,3 +74,25 @@
 .btn:hover .button-text {
   color: var(--base-100);
 }
+
+@media (max-width: 480px) {
+  .btn {
+    width: 10rem;
+    font-size: 0.8rem;
+  }
+
+  .btn .circle {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .btn .icon {
+    top: 0.625rem;
+    left: 0.85rem;
+    font-size: 1.25rem;
+  }
+
+  .btn .button-text {
+    font-size: 0.85rem;
+  }
+}

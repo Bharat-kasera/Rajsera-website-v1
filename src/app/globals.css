@@ -130,11 +130,6 @@ span.spacer {
 }
 
 @media (max-width: 1000px) {
-  h1 {
-    font-size: 3rem;
-    letter-spacing: -0.1rem;
-  }
-
   h2 {
     font-size: 2rem;
     letter-spacing: -0.05rem;
@@ -147,6 +142,32 @@ span.spacer {
 
   .container {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.75rem;
+    letter-spacing: -0.04rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.03rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 0.75rem;
   }
 }
 

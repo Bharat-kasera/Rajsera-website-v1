@@ -21,16 +21,48 @@ import Services from "@/components/Services/Services";
 import HomeAbout from "@/components/HomeAbout/HomeAbout";
 import HomeServices from "@/components/HomeServices/HomeServices";
 import Industries from "@/components/Industries/Industries";
+import { preloadImagesWithTimeout } from "@/utils/imagePreloader";
+import performanceMonitor, { mark, measure } from "@/utils/performanceMonitor";
+import Image from "next/image";
 
 let isInitialLoad = true;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
+// Critical images to preload (visible on initial viewport)
+const criticalImages = [
+  "/gallery-callout/gallery-callout-1.jpg",
+  "/gallery-callout/gallery-callout-2.jpg",
+  "/gallery-callout/gallery-callout-3.jpg",
+  "/gallery-callout/gallery-callout-4.jpg",
+  "/logos/rajsera-icon-dark.svg",
+  "/logos/rajsera-icon-light.svg",
+  "/symbols/s1-dark.png",
+  "/symbols/s3-dark.png",
+];
+
 export default function Home() {
   const tagsRef = useRef(null);
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
   const [loaderAnimating, setLoaderAnimating] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const lenis = useLenis();
+
+  // Preload critical images
+  useEffect(() => {
+    if (showPreloader) {
+      mark('preload-start');
+      performanceMonitor.monitorImages(criticalImages);
+      
+      preloadImagesWithTimeout(criticalImages, 8000).then(() => {
+        mark('preload-end');
+        measure('image-preload-duration', 'preload-start', 'preload-end');
+        setImagesLoaded(true);
+      });
+    } else {
+      setImagesLoaded(true);
+    }
+  }, [showPreloader]);
 
   useEffect(() => {
     return () => {
@@ -49,6 +81,9 @@ export default function Home() {
   }, [lenis, loaderAnimating]);
 
   useGSAP(() => {
+    // Only start animation when images are loaded
+    if (!imagesLoaded) return;
+
     const tl = gsap.timeline({
       delay: 0.3,
       defaults: {
@@ -118,16 +153,24 @@ export default function Home() {
           delay: 0.5,
           onStart: () => {
             // Spline scene will be visible after loader
+            mark('preloader-animation-start');
           },
           onComplete: () => {
             gsap.set(".loader", { pointerEvents: "none" });
             setLoaderAnimating(false);
+            mark('preloader-complete');
+            measure('preloader-animation-duration', 'preloader-animation-start', 'preloader-complete');
+            
+            // Show full performance report in development
+            if (process.env.NODE_ENV === 'development') {
+              setTimeout(() => performanceMonitor.report(), 1000);
+            }
           },
         },
         "<"
       );
     }
-  }, [showPreloader]);
+  }, [showPreloader, imagesLoaded]);
 
   useGSAP(
     () => {
@@ -377,10 +420,24 @@ export default function Home() {
           <div className="gallery-callout-col">
             <div className="gallery-callout-row">
               <div className="gallery-callout-img gallery-callout-img-1">
-                <img src="/gallery-callout/gallery-callout-1.jpg" alt="" />
+                <Image 
+                  src="/gallery-callout/gallery-callout-1.jpg" 
+                  alt="Design showcase" 
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  priority
+                />
               </div>
               <div className="gallery-callout-img gallery-callout-img-2">
-                <img src="/gallery-callout/gallery-callout-2.jpg" alt="" />
+                <Image 
+                  src="/gallery-callout/gallery-callout-2.jpg" 
+                  alt="Design assets" 
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  priority
+                />
                 <div className="gallery-callout-img-content">
                   <h3>500+</h3>
                   <p>Design Assets</p>
@@ -389,10 +446,24 @@ export default function Home() {
             </div>
             <div className="gallery-callout-row">
               <div className="gallery-callout-img gallery-callout-img-3">
-                <img src="/gallery-callout/gallery-callout-3.jpg" alt="" />
+                <Image 
+                  src="/gallery-callout/gallery-callout-3.jpg" 
+                  alt="Portfolio work" 
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  priority
+                />
               </div>
               <div className="gallery-callout-img gallery-callout-img-4">
-                <img src="/gallery-callout/gallery-callout-4.jpg" alt="" />
+                <Image 
+                  src="/gallery-callout/gallery-callout-4.jpg" 
+                  alt="Development work" 
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  priority
+                />
               </div>
             </div>
           </div>

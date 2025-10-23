@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 75svh;
-  overflow: hidden;
+  overflow: visible;
   background-color: var(--base-500);
   color: var(--base-100);
 }
@@ -12,6 +12,7 @@
   flex-direction: column;
   gap: 1rem;
   justify-content: flex-end;
+  padding-bottom: 2rem;
 }
 
 .project-header .project-header-divider {
