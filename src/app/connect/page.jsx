@@ -53,6 +53,11 @@ const page = () => {
         throw new Error(data.message || 'Failed to send message');
       }
       
+      // Fire conversion event only on successful submission
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'ads_conversion_submit_lead_form');
+      }
+      
       setSubmitStatus("success");
       setFormData({
         name: "",
