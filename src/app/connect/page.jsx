@@ -292,7 +292,7 @@ const page = () => {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="hasBudget">Do you have a budget? (in GBP) *</label>
+                  <label htmlFor="hasBudget">Do you have a budget? (in EUR) *</label>
                   <select
                     id="hasBudget"
                     name="hasBudget"
@@ -301,13 +301,13 @@ const page = () => {
                     required
                   >
                     <option value="">Select an option</option>
-                    <option value="0.5k-1k">£500 - £1,000</option>
-                    <option value="1k-5k">£1,000 - £5,000</option>
-                    <option value="5k-10k">£5,000 - £10,000</option>
-                    <option value="10k-20k">£10,000 - £20,000</option>
-                    <option value="20k-30k">£20,000 - £30,000</option>
-                    <option value="30k-50k">£30,000 - £50,000</option>
-                    <option value="50k+">Above £50,000</option>
+                    <option value="0.5k-1k">€500 - €1,000</option>
+                    <option value="1k-5k">€1,000 - €5,000</option>
+                    <option value="5k-10k">€5,000 - €10,000</option>
+                    <option value="10k-20k">€10,000 - €20,000</option>
+                    <option value="20k-30k">€20,000 - €30,000</option>
+                    <option value="30k-50k">€30,000 - €50,000</option>
+                    <option value="50k+">Above €50,000</option>
                     <option value="flexible">Flexible / Depends on scope</option>
                   </select>
                 </div>
