@@ -55,7 +55,11 @@ const page = () => {
       
       // Fire conversion event only on successful submission
       if (typeof window !== 'undefined' && window.gtag) {
+        console.log('🎯 Firing Google Ads conversion event: ads_conversion_submit_lead_form');
         window.gtag('event', 'ads_conversion_submit_lead_form');
+        console.log('✅ Conversion event fired successfully');
+      } else {
+        console.warn('⚠️ gtag is not available. Make sure Google Tag Manager is installed.');
       }
       
       setSubmitStatus("success");
