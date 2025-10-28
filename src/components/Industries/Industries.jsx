@@ -233,9 +233,9 @@ export default function Industries() {
             
             <div className="industries-display-content">
               <div className="industries-display-info">
-                <p ref={numberRef} className="mono industries-number">{currentIndustry.id}</p>
-                <h3 ref={titleRef}>{currentIndustry.title}</h3>
-                <p ref={descRef} className="industries-description">
+                <p ref={numberRef} className="mono industries-number" key={`num-${activeIndustry}`}>{currentIndustry.id}</p>
+                <h3 ref={titleRef} key={`title-${activeIndustry}`}>{currentIndustry.title}</h3>
+                <p ref={descRef} className="industries-description" key={`desc-${activeIndustry}`}>
                   {currentIndustry.description}
                 </p>
                 {/* <AnimatedButton 
