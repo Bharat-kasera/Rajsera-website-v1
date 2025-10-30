@@ -1,0 +1,177 @@
+.privacy-policy-page {
+  min-height: 100vh;
+  background: var(--base-500);
+  color: var(--base-100);
+}
+
+.privacy-policy-hero {
+  padding: 12svh 0 8svh 0;
+  border-bottom: 1px solid var(--base-400);
+}
+
+.privacy-policy-header {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.privacy-policy-header h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: var(--base-100);
+}
+
+.privacy-policy-header p.lg {
+  font-size: 1.125rem;
+  color: var(--base-300);
+  line-height: 1.6;
+}
+
+.privacy-policy-content {
+  padding: 8svh 0 10svh 0;
+}
+
+.privacy-policy-content .container {
+  max-width: 900px;
+}
+
+.privacy-section {
+  margin-bottom: 4rem;
+}
+
+.privacy-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--base-100);
+  line-height: 1.3;
+}
+
+.privacy-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--base-250);
+  margin-bottom: 1rem;
+}
+
+.privacy-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.privacy-section ul li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--base-250);
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.privacy-section ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--base-300);
+  font-weight: 600;
+}
+
+.privacy-section a {
+  color: var(--base-150);
+  text-decoration: none;
+  border-bottom: 1px solid var(--base-350);
+  transition: all 0.3s ease;
+}
+
+.privacy-section a:hover {
+  color: var(--base-100);
+  border-bottom-color: var(--base-200);
+}
+
+.contact-info {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--base-400);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.75rem;
+}
+
+.contact-info p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-info strong {
+  color: var(--base-100);
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .privacy-policy-header h1 {
+    font-size: 2.75rem;
+  }
+
+  .privacy-section h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-policy-hero {
+    padding: 10svh 0 6svh 0;
+  }
+
+  .privacy-policy-header h1 {
+    font-size: 2.25rem;
+  }
+
+  .privacy-policy-header p.lg {
+    font-size: 1rem;
+  }
+
+  .privacy-policy-content {
+    padding: 6svh 0 8svh 0;
+  }
+
+  .privacy-section {
+    margin-bottom: 3rem;
+  }
+
+  .privacy-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .privacy-section p,
+  .privacy-section ul li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .contact-info {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-policy-header h1 {
+    font-size: 1.85rem;
+  }
+
+  .privacy-section h2 {
+    font-size: 1.35rem;
+  }
+
+  .privacy-section p,
+  .privacy-section ul li {
+    font-size: 0.9rem;
+  }
+}
+

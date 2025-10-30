@@ -5,7 +5,7 @@ import { useState } from "react";
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
-import { IoMdArrowForward } from "react-icons/io";
+import { IoMdArrowForward, IoLogoWhatsapp } from "react-icons/io";
 import Lottie from "lottie-react";
 import contactAnimation from "../../../public/lottie/contact-lottie.json";
 import ClientReviews from "@/components/ClientReviews/ClientReviews";
@@ -53,11 +53,12 @@ const page = () => {
         throw new Error(data.message || 'Failed to send message');
       }
       
-      // Fire conversion event only on successful submission
-      if (typeof window !== 'undefined' && window.gtag) {
-        console.log('🎯 Firing Google Ads conversion event: ads_conversion_submit_lead_form');
+      // ✅ Fire conversion event AFTER confirming backend success
+      if (data.success && typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'ads_conversion_submit_lead_form');
-        console.log('✅ Conversion event fired successfully');
+        console.log('✅ Conversion event fired after successful email delivery');
+      } else if (!data.success) {
+        console.warn('⚠️ Backend processing failed, conversion event NOT fired');
       } else {
         console.warn('⚠️ gtag is not available. Make sure Google Tag Manager is installed.');
       }
@@ -206,13 +207,30 @@ const page = () => {
         <section className="contact-form-section">
           <div className="container">
             <div className="contact-form-header">
-              <Copy delay={0.1}>
-                <h2>Have a Project in Mind?</h2>
-              </Copy>
-              <Copy delay={0.15}>
-                <p className="lg">
-                  Share a few details with us and we'll explore how we can help.
-                </p>
+              <div className="contact-form-header-text">
+                <Copy delay={0.1}>
+                  <h2>Have a Project in Mind?</h2>
+                </Copy>
+                <Copy delay={0.15}>
+                  <p className="lg">
+                    Share a few details with us and we'll explore how we can help.
+                  </p>
+                </Copy>
+              </div>
+              <Copy delay={0.2}>
+                <a 
+                  href="https://wa.me/917425074114?text=" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="whatsapp-button"
+                  aria-label="Chat on WhatsApp"
+                >
+                  <span className="whatsapp-circle"></span>
+                  <div className="whatsapp-icon-wrapper">
+                    <IoLogoWhatsapp />
+                  </div>
+                  <span className="whatsapp-text">Chat on WhatsApp</span>
+                </a>
               </Copy>
             </div>
 

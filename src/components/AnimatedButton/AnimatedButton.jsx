@@ -154,6 +154,23 @@ const AnimatedButton = ({
   );
 
   if (route) {
+    // Check if route is external (starts with http:// or https://)
+    const isExternal = route.startsWith('http://') || route.startsWith('https://');
+    
+    if (isExternal) {
+      return (
+        <a
+          href={route}
+          className="btn"
+          ref={buttonRef}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {buttonContent}
+        </a>
+      );
+    }
+    
     return (
       <a
         href={route}

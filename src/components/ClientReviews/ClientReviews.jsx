@@ -15,6 +15,10 @@ const testimonials = [
   { id: 9, image: "/testimonials/t9.png" },
   { id: 10, image: "/testimonials/t10.png" },
   { id: 11, image: "/testimonials/t11.png" },
+  { id: 12, image: "/testimonials/t12.png" },
+  { id: 13, image: "/testimonials/t13.png" },
+  { id: 14, image: "/testimonials/t14.png" },
+
 ];
 
 const ClientReviews = () => {

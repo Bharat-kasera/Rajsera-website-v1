@@ -307,8 +307,8 @@ const Nav = () => {
               <div className="sub-col">
                 <div className="menu-meta menu-commissions">
                   <p>New Projects</p>
-                  <p>rajseralabs@gmail.com</p>
-                  <p>+91 74250 74114</p>
+                  <p><a href="mailto:rajseralabs@gmail.com">rajseralabs@gmail.com</a></p>
+                  <p><a href="https://wa.me/917425074114?text=" target="_blank" rel="noopener noreferrer">+91 74250 74114</a></p>
                 </div>
                 <div className="menu-meta">
                   <p>Studio Location</p>

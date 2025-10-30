@@ -93,7 +93,7 @@ export async function POST(request) {
     `;
 
     // Send email using Resend
-    await resend.emails.send({
+    const emailResult = await resend.emails.send({
       from: 'Rajsera Labs <onboarding@resend.dev>', // You'll update this after verifying your domain
       to: 'rajseralabs@gmail.com',
       replyTo: formData.email,
@@ -101,14 +101,17 @@ export async function POST(request) {
       html: emailContent,
     });
 
+    // Log email result for debugging
+    console.log('✅ Email sent successfully:', emailResult);
+
     return NextResponse.json(
-      { message: 'Email sent successfully!' },
+      { success: true, message: 'Email sent successfully!', emailId: emailResult.id },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('❌ Error sending email:', error);
     return NextResponse.json(
-      { message: 'Failed to send email', error: error.message },
+      { success: false, message: 'Failed to send email', error: error.message },
       { status: 500 }
     );
   }

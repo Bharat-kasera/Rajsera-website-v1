@@ -136,6 +136,10 @@
   color: var(--accent);
 }
 
+.footer-copyright p a:hover {
+  color: var(--base-250);
+}
+
 .footer-copyright p:nth-child(2) {
   display: flex;
   justify-content: flex-end;

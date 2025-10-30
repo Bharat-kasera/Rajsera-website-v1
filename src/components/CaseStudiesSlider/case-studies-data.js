@@ -16,6 +16,22 @@ const caseStudies = [
     slideImg: "/project-images/project-img-3.jpg",
   },
   {
+    slideTitle: "LuxBubble Beauty Services",
+    slideDescription:
+      "An online beauty services marketplace connecting users with hair stylists and beauty professionals. Features geo-location tracking, real-time bookings, instant payments, and chat functionality.",
+    slideUrl: "/case-studies/luxbubble-app",
+    slideTags: ["React Native", "Node.js", "AWS", "Stripe"],
+    slideImg: "/project-images/project-img-5.jpg",
+  },
+  {
+    slideTitle: "Celloux Crypto Trading Platform",
+    slideDescription:
+      "A secure cryptocurrency exchange platform enabling seamless trading, deposits, and withdrawals. Built with blockchain-based transactions, QR code scanning, and real-time conversion rates.",
+    slideUrl: "/case-studies/celloux-crypto-platform",
+    slideTags: ["Swift", "Kotlin", "React Native", "Blockchain"],
+    slideImg: "/project-images/project-img-6.jpg",
+  },
+  {
     slideTitle: "Blog Website",
     slideDescription:
       "A professional blog website for a legal advocate, writer, and analyst. Built with Next.js for optimal performance, featuring clean design, SEO optimization, and analytics integration.",

@@ -161,7 +161,9 @@ const ProjectPage = () => {
           <div className="project-meta">
             <div className="project-meta-col">
               <p data-animate-type="line-reveal" data-animate-delay="0.25">
-                {project.url}
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                  {project.url}
+                </a>
               </p>
               <p data-animate-type="line-reveal" data-animate-delay="0.3">
                 {project.type}
@@ -346,7 +348,11 @@ const ProjectPage = () => {
             <div className="next-project-header-divider"></div>
             <div className="next-project-meta">
               <div className="next-project-meta-col">
-                <p>{project.nextProject.url}</p>
+                <p>
+                  <a href={project.nextProject.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    {project.nextProject.url}
+                  </a>
+                </p>
                 <p>{project.nextProject.type}</p>
               </div>
               <div className="next-project-meta-col">

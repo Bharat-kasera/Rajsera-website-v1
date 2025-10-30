@@ -154,6 +154,16 @@
 
 .contact-form-header {
   margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.contact-form-header-text {
+  flex: 1;
+  min-width: 300px;
 }
 
 .contact-form-header h2 {
@@ -169,6 +179,87 @@
   font-size: 1.125rem;
   line-height: 1.6;
   max-width: 600px;
+}
+
+/* WhatsApp Button - Matching Submit Button Style */
+.whatsapp-button {
+  position: relative;
+  display: inline-block;
+  width: 14rem;
+  height: auto;
+  padding: 0.15rem;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+  background: rgba(37, 211, 102, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 4rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-circle {
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #25D366;
+  border-radius: 4rem;
+  font-size: 1.5rem;
+  overflow: hidden;
+  transition: width 0.5s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.whatsapp-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+  color: #ffffff;
+  font-size: 1.5rem;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.076, 1);
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 0 0 1.25rem;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.whatsapp-button:hover .whatsapp-circle {
+  width: 100%;
+}
+
+.whatsapp-button:hover .whatsapp-icon-wrapper {
+  left: 2.25rem;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .contact-form-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .whatsapp-button {
+    width: 100%;
+  }
 }
 
 .contact-form {

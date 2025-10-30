@@ -127,11 +127,12 @@
 }
 
 .hero .hero-trust-indicators .trust-item svg {
-  color: var(--primary);
+  color: #22c55e;
   flex-shrink: 0;
   font-size: 1.15rem;
   vertical-align: middle;
   margin-top: 0.05rem;
+  filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.6)) drop-shadow(0 0 8px rgba(34, 197, 94, 0.4));
 }
 
 .hero .hero-trust-indicators .trust-item span {

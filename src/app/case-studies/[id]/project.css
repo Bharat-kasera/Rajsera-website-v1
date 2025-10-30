@@ -37,6 +37,21 @@
   gap: 2rem;
 }
 
+.project-header .project-meta a,
+.next-project .next-project-meta a {
+  color: var(--base-100);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  border-bottom: 1px solid transparent;
+}
+
+.project-header .project-meta a:hover,
+.next-project .next-project-meta a:hover {
+  color: var(--base-250);
+  border-bottom-color: var(--base-250);
+}
+
 .project-banner-img {
   width: 100%;
   aspect-ratio: 16/9;

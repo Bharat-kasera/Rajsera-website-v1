@@ -254,8 +254,8 @@ export default function Home() {
               
               
               <AnimatedButton
-                label="Free Consultation"
-                route="/connect"
+                label="WhatsApp Us"
+                route="https://wa.me/917425074114?text="
                 animateOnScroll={false}
                 delay={showPreloader ? 4.45 : 1.3}
               />
@@ -269,7 +269,7 @@ export default function Home() {
                 </Copy>
                 <Copy animateOnScroll={false} delay={showPreloader ? 4.65 : 1.5}>
                   <div className="trust-item">
-                    <IoMdCheckmark />
+                    <IoMdCheckmark  />
                     <span>Fixed pricing, no surprises</span>
                   </div>
                 </Copy>

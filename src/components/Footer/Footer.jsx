@@ -167,7 +167,17 @@ const Footer = () => {
             <p>
               Developed by — <a href="https://www.linkedin.com/in/bharat-kasera/" target="_blank" rel="noopener noreferrer"><span>Bharat Kasera</span></a>
             </p>
-            <p>All rights reserved &copy; 2025</p>
+            <p>
+              <a 
+                href="/privacy-policy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateWithTransition("/privacy-policy");
+                }}
+              >
+                Privacy Policy
+              </a> · All rights reserved &copy; 2025
+            </p>
             {/* <div className="dmca-badge-wrapper">
               <a 
                 href="https://www.dmca.com/r/ypd1m5m" 
