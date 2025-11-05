@@ -10,21 +10,17 @@ const nextConfig = {
   },
   // Enable compression
   compress: true,
-  // Enable SWC minification for faster builds
-  swcMinify: true,
   // Optimize production builds
   poweredByHeader: false,
   reactStrictMode: true,
-  // Optimize fonts
-  optimizeFonts: true,
   // Enable compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   // Experimental features for better performance
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['@gsap/react', 'gsap', 'lottie-react', 'react-icons'],
+    // Note: optimizePackageImports removed to avoid icon import issues
+    optimizePackageImports: ['@gsap/react', 'gsap', 'lottie-react'],
   },
 };
 
