@@ -103,8 +103,16 @@ const ClientReviews = () => {
             className={fadeClass}
             src={testimonials[activeIndex].image} 
             alt={`Client testimonial ${activeIndex + 1}`}
-            loading="eager"
+            loading="lazy"
           />
+          {/* Preload next image for smoother transitions */}
+          {testimonials[(activeIndex + 1) % testimonials.length] && (
+            <link 
+              rel="preload" 
+              as="image" 
+              href={testimonials[(activeIndex + 1) % testimonials.length].image}
+            />
+          )}
         </div>
 
         <button 

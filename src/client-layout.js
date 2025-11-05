@@ -33,19 +33,20 @@ export default function ClientLayout({ children }) {
 
   const scrollSettings = isMobile
     ? {
-        duration: 0.8,
+        // Disable smooth scroll on mobile for better performance
+        duration: 0.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         direction: "vertical",
         gestureDirection: "vertical",
-        smooth: true,
-        smoothTouch: true,
-        touchMultiplier: 1.5,
+        smooth: false, // Disable for native scroll performance
+        smoothTouch: false, // Critical: disable to reduce CPU load
+        touchMultiplier: 1,
         infinite: false,
-        lerp: 0.09,
+        lerp: 0.05, // Reduced for lighter calculations
         wheelMultiplier: 1,
         orientation: "vertical",
-        smoothWheel: true,
-        syncTouch: true,
+        smoothWheel: false, // Use native scrolling
+        syncTouch: false, // Disable sync for better performance
       }
     : {
         duration: 1.2,

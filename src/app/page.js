@@ -13,11 +13,9 @@ import { IoMdCheckmark } from "react-icons/io";
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import AnimatedButton from "@/components/AnimatedButton/AnimatedButton";
-import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
-import ClientReviews from "@/components/ClientReviews/ClientReviews";
-import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
 import Services from "@/components/Services/Services";
+import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import HomeAbout from "@/components/HomeAbout/HomeAbout";
 import HomeServices from "@/components/HomeServices/HomeServices";
 import Industries from "@/components/Industries/Industries";
@@ -46,7 +44,20 @@ export default function Home() {
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
   const [loaderAnimating, setLoaderAnimating] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(null); // null initially to prevent double animation
+  const [isReady, setIsReady] = useState(false);
   const lenis = useLenis();
+
+  // Detect mobile device for conditional rendering
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsReady(true);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Preload critical images
   useEffect(() => {
@@ -174,9 +185,16 @@ export default function Home() {
 
   useGSAP(
     () => {
-      if (!tagsRef.current) return;
+      if (!tagsRef.current || !isReady) return; // Wait for device detection
 
       const tags = tagsRef.current.querySelectorAll(".what-we-do-tag");
+      
+      // On mobile, use simpler animations or skip entirely for better performance
+      if (isMobile) {
+        gsap.set(tags, { opacity: 1, x: 0 });
+        return;
+      }
+
       gsap.set(tags, { opacity: 0, x: -40 });
 
       ScrollTrigger.create({
@@ -192,7 +210,7 @@ export default function Home() {
         }),
       });
     },
-    { scope: tagsRef }
+    { scope: tagsRef, dependencies: [isMobile, isReady] }
   );
 
   return (
@@ -222,17 +240,31 @@ export default function Home() {
       <Nav />
       <section className="hero">
         <div className="hero-bg">
-          <video
-            className="hero-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src="/spline/legendary-waves.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {!isMobile ? (
+            // Desktop: Show video for premium experience
+            <video
+              className="hero-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              loading="lazy"
+            >
+              <source src="/spline/legendary-waves.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            // Mobile: Use static image to save bandwidth and improve performance
+            <Image
+              src="/spline/wave-mobile.png"
+              alt="Hero Background"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+              quality={75}
+            />
+          )}
         </div>
         <div className="hero-gradient"></div>
         <div className="container">
@@ -420,23 +452,19 @@ export default function Home() {
           <div className="gallery-callout-col">
             <div className="gallery-callout-row">
               <div className="gallery-callout-img gallery-callout-img-1">
-                <Image 
+                <img 
                   src="/gallery-callout/gallery-callout-1.jpg" 
                   alt="Design showcase" 
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  priority
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               <div className="gallery-callout-img gallery-callout-img-2">
-                <Image 
+                <img 
                   src="/gallery-callout/gallery-callout-2.jpg" 
                   alt="Design assets" 
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  priority
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div className="gallery-callout-img-content">
                   <h3>500+</h3>
@@ -446,23 +474,19 @@ export default function Home() {
             </div>
             <div className="gallery-callout-row">
               <div className="gallery-callout-img gallery-callout-img-3">
-                <Image 
+                <img 
                   src="/gallery-callout/gallery-callout-3.jpg" 
                   alt="Portfolio work" 
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  priority
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               <div className="gallery-callout-img gallery-callout-img-4">
-                <Image 
+                <img 
                   src="/gallery-callout/gallery-callout-4.jpg" 
                   alt="Development work" 
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  priority
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
             </div>

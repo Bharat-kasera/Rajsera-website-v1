@@ -11,12 +11,25 @@ gsap.registerPlugin(SplitText);
 export default function Industries() {
   const [activeIndustry, setActiveIndustry] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(null); // null initially
+  const [isReady, setIsReady] = useState(false);
   const titleRef = useRef(null);
   const descRef = useRef(null);
   const numberRef = useRef(null);
   const bgRef = useRef(null);
   const titleSplitRef = useRef(null);
   const descSplitRef = useRef(null);
+
+  // Detect mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsReady(true);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const industries = [
     {
@@ -95,8 +108,25 @@ export default function Industries() {
 
   // Create SplitText on mount and when industry changes
   useEffect(() => {
-    if (!titleRef.current || !descRef.current) return;
+    if (!titleRef.current || !descRef.current || !isReady) return; // Wait for device detection
 
+    // On mobile, use simple animations without SplitText
+    if (isMobile) {
+      gsap.set([titleRef.current, descRef.current, numberRef.current], { opacity: 0, y: 20 });
+      
+      const tl = gsap.timeline();
+      tl.to([numberRef.current, titleRef.current, descRef.current], {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out"
+      });
+      
+      return;
+    }
+
+    // Desktop: Full SplitText animation
     // Clean up previous splits
     if (titleSplitRef.current) titleSplitRef.current.revert();
     if (descSplitRef.current) descSplitRef.current.revert();
@@ -148,13 +178,41 @@ export default function Industries() {
       if (titleSplitRef.current) titleSplitRef.current.revert();
       if (descSplitRef.current) descSplitRef.current.revert();
     };
-  }, [activeIndustry]);
+  }, [activeIndustry, isMobile, isReady]);
 
   const handleIndustryChange = (index) => {
     if (index === activeIndustry || isTransitioning) return;
     
     setIsTransitioning(true);
 
+    // On mobile, use simpler transition
+    if (isMobile) {
+      const tl = gsap.timeline({
+        onComplete: () => setIsTransitioning(false)
+      });
+
+      tl.to([titleRef.current, descRef.current, numberRef.current], {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in"
+      });
+
+      tl.to(bgRef.current, {
+        opacity: 0.6,
+        duration: 0.3
+      }, 0);
+
+      tl.call(() => setActiveIndustry(index), null, 0.3);
+
+      tl.to(bgRef.current, {
+        opacity: 1,
+        duration: 0.4
+      }, 0.3);
+
+      return;
+    }
+
+    // Desktop: Full animation
     const tl = gsap.timeline({
       onComplete: () => {
         setIsTransitioning(false);

@@ -1,6 +1,6 @@
 "use client";
 import "./Copy.css";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -14,6 +14,19 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
   const elementRefs = useRef([]);
   const splitRefs = useRef([]);
   const lines = useRef([]);
+  const [isMobile, setIsMobile] = useState(null); // null initially to prevent double animation
+  const [isReady, setIsReady] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsReady(true); // Mark as ready after first check
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const waitForFonts = async () => {
     try {
@@ -36,8 +49,42 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
 
   useGSAP(
     () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !isReady) return; // Wait until device type is determined
 
+      // On mobile, skip heavy SplitText animations for better performance
+      if (isMobile) {
+        const elements = containerRef.current.hasAttribute("data-copy-wrapper")
+          ? Array.from(containerRef.current.children)
+          : [containerRef.current];
+        
+        // Simple fade-in instead of complex text splitting
+        gsap.set(elements, { opacity: 0, y: 20 });
+        
+        const animationProps = {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          delay: delay,
+        };
+
+        if (animateOnScroll && containerRef.current) {
+          gsap.to(elements, {
+            ...animationProps,
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 90%",
+              once: true,
+            },
+          });
+        } else {
+          gsap.to(elements, animationProps);
+        }
+        
+        return;
+      }
+
+      // Desktop: Full SplitText animation
       const initializeSplitText = async () => {
         await waitForFonts();
 
@@ -123,7 +170,7 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
         elementRefs.current = [];
       };
     },
-    { scope: containerRef, dependencies: [animateOnScroll, delay] }
+    { scope: containerRef, dependencies: [animateOnScroll, delay, isMobile, isReady] }
   );
 
   // Validate children before rendering
@@ -131,12 +178,18 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
     return null;
   }
 
+  // Hide content until device detection is complete to prevent flash
+  const initialStyle = !isReady ? { opacity: 0 } : {};
+
   if (React.Children.count(children) === 1 && React.isValidElement(children)) {
-    return React.cloneElement(children, { ref: containerRef });
+    return React.cloneElement(children, { 
+      ref: containerRef,
+      style: { ...children.props.style, ...initialStyle }
+    });
   }
 
   return (
-    <div ref={containerRef} data-copy-wrapper="true">
+    <div ref={containerRef} data-copy-wrapper="true" style={initialStyle}>
       {children}
     </div>
   );

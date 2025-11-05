@@ -1,8 +1,7 @@
 "use client";
 import "./Services.css";
 
-import { useRef } from "react";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -52,7 +51,20 @@ const Services = () => {
   const containerRef = useRef(null);
   const servicesGridRef = useRef(null);
   const [hoveredService, setHoveredService] = useState(null);
+  const [isMobile, setIsMobile] = useState(null); // null initially
+  const [isReady, setIsReady] = useState(false);
   const { navigateWithTransition } = useViewTransition();
+
+  // Detect mobile for conditional animations
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsReady(true);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleServiceClick = (serviceId) => {
     navigateWithTransition(`/services/${serviceId}`);
@@ -60,11 +72,18 @@ const Services = () => {
 
   useGSAP(
     () => {
-      if (!servicesGridRef.current) return;
+      if (!servicesGridRef.current || !isReady) return; // Wait for device detection
 
       const serviceCards =
         servicesGridRef.current.querySelectorAll(".service-card");
       
+      // On mobile, show cards immediately without heavy animations
+      if (isMobile) {
+        gsap.set(serviceCards, { opacity: 1, y: 0 });
+        return;
+      }
+
+      // Desktop: Full animation
       gsap.set(serviceCards, { opacity: 0, y: 60 });
 
       serviceCards.forEach((card, index) => {
@@ -82,7 +101,7 @@ const Services = () => {
         });
       });
     },
-    { scope: servicesGridRef }
+    { scope: servicesGridRef, dependencies: [isMobile, isReady] }
   );
 
   return (
