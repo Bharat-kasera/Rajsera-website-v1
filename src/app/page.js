@@ -378,7 +378,7 @@ export default function Home() {
             <Copy delay={0.1}>
               <h1>
                 <span className="spacer">&nbsp;</span>
-                At Rajsera Labs, we develop with purpose and precision, creating digital 
+                At&nbsp;Rajsera Labs, we develop with purpose and precision, creating digital 
                 products that combine stunning UI/UX design with powerful functionality 
                 and seamless user experiences.
               </h1>
