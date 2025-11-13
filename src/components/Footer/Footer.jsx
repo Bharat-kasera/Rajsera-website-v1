@@ -100,6 +100,15 @@ const Footer = () => {
                 >
                   <h3>Services</h3>
                 </a>
+                <a
+                  href="/projects"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateWithTransition("/projects");
+                  }}
+                >
+                  <h3>Projects</h3>
+                </a>
                 {/* <a
                   href="/industries"
                   onClick={(e) => {
