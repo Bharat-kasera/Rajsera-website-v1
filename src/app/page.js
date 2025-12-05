@@ -430,7 +430,7 @@ export default function Home() {
         </div>
       </section>
       <HomeAbout />
-      <HomeServices />
+      {/* <HomeServices /> */}
       {/* <section className="featured-projects-container">
         <div className="container">
           <div className="featured-projects-header-callout">
