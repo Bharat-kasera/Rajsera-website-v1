@@ -7,6 +7,7 @@ import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter"
 import Copy from "@/components/Copy/Copy";
 import { IoMdArrowForward, IoLogoWhatsapp } from "react-icons/io";
 import { RiExternalLinkLine } from "react-icons/ri";
+import ClientReviews from "@/components/ClientReviews/ClientReviews";
 
 const projectsData = [
   {
@@ -98,7 +99,7 @@ const projectsData = [
     image: "/projects/studiova.jpg",
     tags: ["Studio Website", "Creative Services", "Professional", "Elegant"],
     category: "Website"
-  }
+  },
 ];
 
 const ProjectsClient = () => {
@@ -198,6 +199,11 @@ const ProjectsClient = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+        <section className="client-reviews-container">
+          <div className="container">
+            <ClientReviews/>
           </div>
         </section>
 
