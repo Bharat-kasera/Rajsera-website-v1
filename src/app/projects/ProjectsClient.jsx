@@ -10,6 +10,15 @@ import { RiExternalLinkLine } from "react-icons/ri";
 import ClientReviews from "@/components/ClientReviews/ClientReviews";
 
 const projectsData = [
+                {
+    id: "property",
+    title: "Property - Find your best real estate",
+    description: "Real estate platform featuring property listings, savings calculator, featured properties showcase, and comprehensive search for apartments, houses, offices, and shops.",
+    url: "https://property-rajsera-demo.vercel.app/",
+    image: "/projects/property.jpg",
+    tags: ["Real Estate", "Property Listings", "Next.js", "Search Platform"],
+    category: "Website"
+  },
   {
     id: "negative-films",
     title: "Negative Films",
@@ -26,6 +35,15 @@ const projectsData = [
     url: "http://lexend-rajsera.vercel.app/",
     image: "/projects/lexend.jpg",
     tags: ["Modern Design", "React", "Clean UI", "Interactive"],
+    category: "Website"
+  },
+          {
+    id: "kara-shop",
+    title: "Kara Shop",
+    description: "Modern streetwear e-commerce platform with product categories, cart functionality, wishlist features, and buyer protection built with T3 Stack and Tailwind CSS.",
+    url: "https://kara-shop-rajsera.vercel.app/",
+    image: "/projects/kara-shop.jpg",
+    tags: ["E-commerce", "T3 Stack", "Fashion", "Tailwind CSS"],
     category: "Website"
   },
   {
@@ -82,6 +100,15 @@ const projectsData = [
     tags: ["AI Platform", "Machine Learning", "Advanced Tech", "Innovation"],
     category: "Website"
   },
+              {
+    id: "tourex",
+    title: "Tourex - A Travel Agency",
+    description: "Comprehensive tour and travel booking platform with destination exploration, featured tour packages, adventure opportunities, and travel blog integration.",
+    url: "https://tourex-three.vercel.app/",
+    image: "/projects/tourex.jpg",
+    tags: ["Travel", "Booking Platform", "Next.js", "Tourism"],
+    category: "Website"
+  },
   {
     id: "ochii",
     title: "Ochii",
@@ -100,6 +127,36 @@ const projectsData = [
     tags: ["Studio Website", "Creative Services", "Professional", "Elegant"],
     category: "Website"
   },
+    {
+    id: "blogforge",
+    title: "BlogForge",
+    description: "Modern blogging platform featuring categorized articles, author profiles, newsletter subscriptions, and a clean reading experience for content creators and readers.",
+    url: "https://blog-forge-rajsera.vercel.app/",
+    image: "/projects/blogforge.jpg",
+    tags: ["Blog Platform", "Next.js", "Content Management", "Publishing"],
+    category: "Website"
+  },
+      {
+    id: "cote-royal",
+    title: "Cote Royal - Eau de Parfum",
+    description: "Luxury men's fragrance e-commerce site featuring elegant product showcases, fragrance finder quiz, and premium brand aesthetics for Terra, Aqua, and Ignis collections.",
+    url: "https://cote-royal-rajsera.vercel.app/",
+    image: "/projects/coteroyal.jpg",
+    tags: ["E-commerce", "Luxury Brand", "Fragrance", "Premium Design"],
+    category: "Website"
+  },
+
+          {
+    id: "carento",
+    title: "Carento",
+    description: "Premium car rental platform featuring vehicle listings, payment calculator, customer reviews, and seamless booking experience for premium automotive brands.",
+    url: "https://carento-rajsera-demo.vercel.app/",
+    image: "/projects/carento.jpg",
+    tags: ["Car Rental", "Next.js", "Bootstrap 5", "Booking Platform"],
+    category: "Website"
+  },
+
+
 ];
 
 const ProjectsClient = () => {
